@@ -4,8 +4,8 @@ services:
     hostname: 'satisfactory-server'
     image: 'wolveix/satisfactory-server:latest'
     ports:
-      - '7777:7777/udp'
-      - '7777:7777/tcp'
+      - '57923:57923/udp'
+      - '57923:57923/tcp'
     volumes:
       - './satisfactory-server:/config'
     environment:
@@ -14,6 +14,7 @@ services:
       - PUID=1000
       - ROOTLESS=false
       - STEAMBETA=false
+      - SERVERGAMEPORT=57923
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "bash", "/healthcheck.sh" ]
